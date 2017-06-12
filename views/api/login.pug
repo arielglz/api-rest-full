@@ -1,0 +1,38 @@
+extend ../layout
+block content
+  .container
+    .row
+      .col-md-4.remove-float.center-block
+        form( id="login" method="post")
+          h2.header Porfavor inicie sesion!
+          .form-group
+            .input-group
+              span.input-group-addon @
+              input.form-control(type="email", placeholder="Ingrese su email")
+          .form-group
+            .input-group
+              span.input-group-addon *
+              input.form-control(type="password", placeholder="Ingrese su password")
+          .row.top-space
+            .col-xs-12.col-sm-6
+              input.btn.btn-info(type="submit", value="Log In")
+            .col-xs-12.col-sm-6.text-rigth
+              a(href="/signup") No tengo una cuenta
+          
+  script(type="application/javascript").
+    const formLogin = document.querySelector('#login')
+    const formData = new FormData(formLogin)
+    
+    formLogin.addEventListener('submit', event => {
+      event.preventDefault()
+      fetch('/api/signin', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        localStorage.setItem('token', data.token)
+      })
+    })
+        
+      

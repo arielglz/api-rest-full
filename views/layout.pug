@@ -1,0 +1,25 @@
+html(lang = "es")
+  head
+    title= "Mi API Node.js"
+    meta(charset="utf-8")
+    link(rel="stylesheet", type="text/css", href="/css/bootstrap.min.css")
+  body
+    nav(class="navbar navbar-inverse")
+      .container-fluid
+        .navbar-header
+          a(class="navbar-brand" href="#") iMarket
+        ul.nav.navbar-nav
+          li: a(class="active" href="#") Home
+          li: a(href="/api/product") Ver Productos
+          li: a(href="") Crear Producto
+        ul.nav.navbar-nav.navbar-right
+          li: a(href="/api/signup") Sign Up
+            span.glyphicon.glyphicon-user 
+          li: a(href="/login") Sign In
+            span.glyphicon.glyphicon-log-in 
+          
+    block content
+    script(type="application/javascript", src="/js/jquery.min.js")
+    script(type="application/javascript", src="/js/bootstrap.min.js")
+    
+    
